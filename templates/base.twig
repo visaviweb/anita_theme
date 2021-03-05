@@ -1,0 +1,64 @@
+{% block html_head_container %}
+
+{% include 'html-header.twig' %}
+	{% block head %}
+	{% endblock %}
+	</head>
+{% endblock %}
+
+	<body class="{{body_class}}" data-template="base.twig">
+		<a class="sr-only" href="#content">{{ _e( 'Skip to content') }}</a>
+	{% block header %}
+
+<header class="fixed z-10 w-full flex flex-col bg-white">
+  <nav id="site-menu" class="flex flex-col sm:flex-row w-full justify-between items-center px-4 sm:px-6 py-1 sm:py-2 border-b border-gray-200">
+    <div class="w-full sm:w-auto self-start sm:self-center flex flex-row sm:flex-none flex-no-wrap justify-between items-center">
+      <h1 class="text-lg tracking-widest">
+				<a href="{{site.url}}" class="no-underline " rel="home">{{site.name}}</a>
+			</h1>
+		<button id="menuBtn" class="hamburger block sm:hidden focus:outline-none" type="button" onclick="navToggle();">
+        <span class="hamburger__top-bun"></span><span class="hamburger__bottom-bun"></span>
+      </button>
+    </div>
+    <div id="menu" class="w-full sm:w-auto self-end sm:self-center sm:flex flex-col sm:flex-row items-center h-full pb-4 sm:pb-0 hidden">
+    {% for item in menu.get_items %}
+			<a class="hover:text-red w-full no-underline sm:w-auto sm:pl-4 py-2 sm:py-1 sm:pt-2 {{ item.classes | join(' ') }}" target="{{ item.target }}" href="{{ item.link }}">{{ item.title }}</a>
+	{% endfor %}
+	
+    </div>
+  </nav>
+</header>
+	{% endblock %}
+	</header>
+
+	<section role="main" class="pt-16 px-4 sm:px-6 w-full">
+				{% block content %}
+					Sorry, no content
+				{% endblock %}
+			{#% if sidebar %}
+				<aside class="layout-sidebar">
+					{{sidebar}}
+				</aside>
+			{% endif %#}
+		</section>
+
+		{% block footer %}
+			<footer id="footer">
+				{#% include 'footer.twig' %#}
+			</footer>
+			{{ function('wp_footer') }}
+			<script>
+function navToggle() {
+        var btn = document.getElementById('menuBtn');
+        var nav = document.getElementById('menu');
+
+        btn.classList.toggle('open');
+        nav.classList.toggle('flex');
+        nav.classList.toggle('hidden');
+    }
+	</script>
+		{% endblock %}
+
+		
+	</body>
+</html>
