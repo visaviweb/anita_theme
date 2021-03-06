@@ -17,7 +17,11 @@ module.exports = {
           },
           padding: {
             'full': '100%'
-          }
+          },
+          fontFamily: {
+            'montserrat': ['Montserrat', 'sans-serif'],
+            'raleway': ['Raleway', 'sans-serif']
+          },
         },
       },
     variants: {},
