@@ -4,7 +4,7 @@ mix.postCss('assets/src/css/main.css', 'assets/dist/', [
 ])
 .sourceMaps()
 .browserSync({
-    proxy: "localhost/anita-wp",
+    proxy: "localhost/anita",
     files: [
         "./assets/src/js/**/*.js",
         "./assets/src/css/**/*.css",
