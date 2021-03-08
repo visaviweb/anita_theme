@@ -1,5 +1,5 @@
 {% extends "base.twig" %}
 {% block content %}
-<h1 class="text-2xl sm:text-3xl py-2 sm:py-6 font-quicksand">{{ title }}</h1>
+<h1 class="article-h1">{{ title }}</h1>
 {% include "partial/list-illustrazioni.twig" with { 'illustrazioni' : posts } %}
 {% endblock %}
