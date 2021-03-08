@@ -3,11 +3,11 @@
 {% block content %}
 	<div class="content-wrapper">
 		<article class="post-type-{{ post.post_type }} sm:pt-6 pb-4 sm:pb-6" id="post-{{ post.ID }}">
-			<img srcset="{{ post.thumbnail.src|resize(480) }} 480w, 
-            {{ post.thumbnail.src|resize(768) }} 768w, 
-            {{ post.thumbnail.src|resize(1400) }} 1400w, 
-            {{ post.thumbnail.src|resize(1920) }} 1920w"
-            src="{{ post.thumbnail.src|resize(480) }}"  
+			<img srcset="{{ post.thumbnail.src|resize(480, 1024) }} 480w, 
+            {{ post.thumbnail.src|resize(768, 1024) }} 768w, 
+            {{ post.thumbnail.src|resize(1400, 1024) }} 1400w, 
+            {{ post.thumbnail.src|resize(1920, 1024) }} 1920w"
+            src="{{ post.thumbnail.src|resize(480, 1024) }}"  
             title="{{ post.title }}" 
             alt="{{ post.title }}">
 			<section class="article-content">
@@ -15,26 +15,6 @@
 				<div class="article-body">
 					{{post.content}}
 				</div>
-			</section>
-
-			<!-- comment box -->
-			<section class="comment-box">
-				<!-- comments -->
-				<div class="comments">
-				    {% if post.comments %}
-					<h3> comments </h3>
-					{% for cmt in post.comments %}
-					    {% include "comment.twig" with {comment:cmt} %}
-					{% endfor %}
-				    {% endif %}
-				</div>
-
-				{% if post.comment_status == "closed" %}
-					<p> comments for this post are closed </p>
-				{% else %}
-				    <!-- comment form -->
-				    {% include "comment-form.twig" %}
-				{% endif %}
 			</section>
 		</article>
 	</div><!-- /content-wrapper -->
