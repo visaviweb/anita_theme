@@ -62,3 +62,11 @@
     rotate(-45deg)
     translateY(0px);
 }
+
+.current-menu-item {
+  @apply text-black hover:no-underline;
+}
+
+.article-h1 {
+  @apply text-2xl sm:text-3xl sm:pt-8 pb-4 sm:pb-5 font-quicksand;
+}
