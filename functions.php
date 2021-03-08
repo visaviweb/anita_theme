@@ -66,6 +66,8 @@ class StarterSite extends Timber\Site {
 		add_action( 'init', array( $this, 'register_post_types' ) );
 		add_action( 'init', array( $this, 'register_taxonomies' ) );
 		add_action( 'pre_get_posts', array( $this, 'set_max_posts' ) );
+		add_filter('use_block_editor_for_post_type', array( $this, 'prefix_disable_gutenberg'), 10, 2);
+	
 		parent::__construct();
 	}
 	/** This is where you can register custom post types. */
@@ -80,6 +82,13 @@ class StarterSite extends Timber\Site {
 	public function set_max_posts($query) {
 		$query->set('posts_per_page', 100);
 	}
+
+	/** Disable gutenberg editor for illustrazioni. */
+	public function prefix_disable_gutenberg($current_status, $post_type) {
+    // Use your post type key instead of 'product'
+    if ($post_type === 'illustrazione') return false;
+    return $current_status;
+}
 
 	/** This is where you add some context
 	 *
