@@ -2,8 +2,14 @@
 
 {% block content %}
 	<div class="content-wrapper">
-		<article class="post-type-{{ post.post_type }}" id="post-{{ post.ID }}">
-			<img src="{{ post.thumbnail.src|resize(1200, 300) }}">
+		<article class="post-type-{{ post.post_type }} sm:pt-6 pb-4 sm:pb-6" id="post-{{ post.ID }}">
+			<img srcset="{{ post.thumbnail.src|resize(480) }} 480w, 
+            {{ post.thumbnail.src|resize(768) }} 768w, 
+            {{ post.thumbnail.src|resize(1400) }} 1400w, 
+            {{ post.thumbnail.src|resize(1920) }} 1920w"
+            src="{{ post.thumbnail.src|resize(480) }}"  
+            title="{{ post.title }}" 
+            alt="{{ post.title }}">
 			<section class="article-content">
 				<h1 class="article-h1">{{ post.title }}</h1>
 				<div class="article-body">
