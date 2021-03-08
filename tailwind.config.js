@@ -19,8 +19,7 @@ module.exports = {
             'full': '100%'
           },
           fontFamily: {
-            'montserrat': ['Montserrat', 'sans-serif'],
-            'raleway': ['Raleway', 'sans-serif']
+            'quicksand': ['Quicksand', 'sans-serif'],
           },
         },
       },
