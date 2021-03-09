@@ -10,7 +10,7 @@
 		<a class="sr-only" href="#content">{{ _e( 'Skip to content') }}</a>
 	{% block header %}
 
-<header class="fixed z-10 w-full flex flex-col bg-white border-b border-gray-200">
+<header class="fixed z-30 w-full flex flex-col bg-white border-b border-gray-200">
   <nav id="site-menu" class="flex flex-col sm:flex-row w-full justify-between items-center px-5 sm:px-9 lg:px-14 pt-2 pb-1 sm:pb-5 sm:pt-6">
     <div class="w-full sm:w-auto self-start sm:self-center flex flex-row sm:flex-none flex-no-wrap justify-between items-center">
       	<h2 class="text-xl font-quicksand">
@@ -39,10 +39,10 @@
 	</div>
   </nav>
 </header>
-	{% endblock %}
-	</header>
+{% endblock %}
 
-	<section id="content" role="main" class="pt-20 px-5 sm:px-9 lg:px-14 w-full">
+		{% block maincontent %}
+		<section id="content" role="main" class="pt-20 px-5 sm:px-9 lg:px-14 w-full">
 				{% block content %}
 					Sorry, no content
 				{% endblock %}
@@ -52,13 +52,14 @@
 				</aside>
 			{% endif %#}
 		</section>
-
+		{% endblock %}
 		{% block footer %}
 			<footer id="footer">
 				{#% include 'footer.twig' %#}
 			</footer>
-			{{ function('wp_footer') }}
-			<script>
+		{% endblock %}
+		{{ function('wp_footer') }}
+	<script>
 function navToggle() {
         var btn = document.getElementById('menuBtn');
         var nav = document.getElementById('menu');
@@ -68,8 +69,6 @@ function navToggle() {
         nav.classList.toggle('hidden');
     }
 	</script>
-		{% endblock %}
-
 		
 	</body>
 </html>

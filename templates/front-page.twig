@@ -1,7 +1,19 @@
 {% extends "base.twig" %}
 
-{% block content %}
+{% block maincontent %}
+<div class="absolute inset-0 flex items-center pt-14 sm:pt-20 overflow-hidden">
 
-	{% include "partial/list-illustrazioni.twig" with { 'illustrazioni' : illustrazioni } %}
+<img srcset="{{ site.theme.link ~'/assets/img/anita-front.jpg'|resize(480, 1024) }} 480w, 
+            {{ site.theme.link ~'/assets/img/anita-front.jpg'|resize(768, 1024) }} 768w, 
+            {{ site.theme.link ~'/assets/img/anita-front.jpg'|resize(1400, 1024) }} 1400w, 
+            {{ site.theme.link ~'/assets/img/anita-front.jpg'|resize(1920, 1024) }} 1920w"
+            src="{{ site.theme.link ~'/assets/img/anita-front.jpg'|resize(480, 1024) }}"  
+            alt="{{site.name}}"
+    class="object-cover min-h-full min-w-full "
+	style="object-position:20% 50%;"
+  >
+</div>
+{% endblock %}
 
+{% block footer %}
 {% endblock %}
