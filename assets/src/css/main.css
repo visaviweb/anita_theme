@@ -74,4 +74,8 @@
 .article-body {
   @apply prose;
   max-width: 100%;
+  line-height:1.6em
+}
+.article-body p, .article-body figure {
+  margin: 1em 0;
 }
