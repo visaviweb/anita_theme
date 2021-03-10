@@ -70,3 +70,7 @@
 .article-h1 {
   @apply text-2xl sm:text-3xl sm:pt-8 pb-4 sm:pb-5 font-quicksand;
 }
+
+.article-body {
+  @apply prose;
+}
